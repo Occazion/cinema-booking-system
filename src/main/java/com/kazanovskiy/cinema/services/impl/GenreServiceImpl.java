@@ -23,12 +23,12 @@ public class GenreServiceImpl implements GenreService {
     }
 
     public Genre getGenreByID(Long id) {
-        return genreRepository.findOne(id);
+        return genreRepository.findById(id).orElse(new Genre());
     }
 
     public void deleteGenreById(Long id) {
         if (getGenreByID(id) != null)
-            genreRepository.delete(id);
+            genreRepository.deleteById(id);
     }
 
     public void addGenre(Genre genre) {

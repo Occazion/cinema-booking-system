@@ -28,19 +28,15 @@ public class FilmServiceImpl implements FilmService {
     }
 
     public Page<Film> getAllFilmsPage(Integer pageNumber) {
-        PageRequest request =
-                new PageRequest(pageNumber - 1, PAGE_SIZE, Sort.Direction.ASC, "title");
-        return filmRepository.findAll(request);
+        return filmRepository.findAll(PageRequest.of(pageNumber - 1, PAGE_SIZE, Sort.Direction.ASC, "title"));
     }
 
     public Film getFilmByID(Long id) {
-        return filmRepository.findOne(id);
+        return filmRepository.findById(id).orElse(new Film());
     }
 
     public Page<Film> searchByTittle(String filmTittle, Integer pageNumber) {
-        PageRequest request =
-                new PageRequest(pageNumber - 1, PAGE_SIZE, Sort.Direction.ASC, "title");
-        return filmRepository.findByTitleContaining(filmTittle, request);
+        return filmRepository.findByTitleContaining(filmTittle, PageRequest.of(pageNumber - 1, PAGE_SIZE, Sort.Direction.ASC, "title"));
     }
 
     public List<Film> getLast() {
@@ -53,7 +49,7 @@ public class FilmServiceImpl implements FilmService {
 
     public void deleteFilmByID(Long id) {
         if (getFilmByID(id) != null) {
-            filmRepository.delete(id);
+            filmRepository.deleteById(id);
         }
     }
 }

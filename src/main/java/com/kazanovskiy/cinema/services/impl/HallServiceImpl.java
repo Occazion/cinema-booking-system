@@ -23,13 +23,13 @@ public class HallServiceImpl implements HallService {
     }
 
     public Hall getHallByID(Long hallId) {
-        return hallRepository.findOne(hallId);
+        return hallRepository.findById(hallId).orElse(new Hall());
     }
 
 
     public void deleteHallByID(Long id) {
         if (getHallByID(id) != null) {
-            hallRepository.delete(id);
+            hallRepository.deleteById(id);
         }
     }
 

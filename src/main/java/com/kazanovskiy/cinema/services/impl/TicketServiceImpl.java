@@ -25,9 +25,7 @@ public class TicketServiceImpl implements TicketService {
     }
 
     public Page<Ticket> findAll(Integer pageNumber) {
-        PageRequest request =
-                new PageRequest(pageNumber - 1, pageSize);
-        return ticketRepository.findAll(request);
+        return ticketRepository.findAll(PageRequest.of(pageNumber - 1, pageSize));
     }
 
     public List<Ticket> getAllTicket() {
@@ -35,7 +33,7 @@ public class TicketServiceImpl implements TicketService {
     }
 
     public Ticket findById(Long id) {
-        return ticketRepository.findOne(id);
+        return ticketRepository.findById(id).orElse(new Ticket());
     }
 
     public void update(Ticket ticket) {

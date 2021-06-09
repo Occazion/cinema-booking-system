@@ -34,23 +34,17 @@ public class ActorServiceImpl implements ActorService {
     }
 
     public Page<Actor> getAllActorsPage(Integer pageNumber) {
-        PageRequest request =
-                new PageRequest(pageNumber - 1, pageSize, Sort.Direction.ASC, "lastName");
-        return actorRepository.findAll(request);
+        return actorRepository.findAll(PageRequest.of(pageNumber - 1,pageSize,Sort.by(Sort.Direction.ASC,"lastName")));
     }
 
     public Actor getActorByID(Long id) {
-        return actorRepository.findOne(id);
+        return actorRepository.findById(id).orElseThrow(NoSuchFieldError::new);
     }
 
     public void deleteActorByID(Long id) {
-        if (existActor(actorRepository.findOne(id))) {
-            actorRepository.delete(id);
+        if (actorRepository.findById(id).isPresent()) {
+            actorRepository.deleteById(id);
         }
-    }
-
-    private boolean existActor(Actor actor) {
-        return actorRepository.exists(actor.getId());
     }
 
 }

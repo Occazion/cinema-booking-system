@@ -25,7 +25,7 @@ public class FilmSessionServiceImpl implements FilmSessionService {
 
     public void deleteSessionById(Long id) {
         if (getSessionById(id) != null) {
-            filmSessionRepository.delete(id);
+            filmSessionRepository.deleteById(id);
         }
     }
 
@@ -35,7 +35,7 @@ public class FilmSessionServiceImpl implements FilmSessionService {
 
 
     public FilmSession getSessionById(Long id) {
-        return filmSessionRepository.findOne(id);
+        return filmSessionRepository.findById(id).orElse(new FilmSession());
     }
 
 

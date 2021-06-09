@@ -26,9 +26,7 @@ public class CinemaServiceImpl implements CinemaService {
     }
 
     public Page<Cinema> getAllCinemaPage(Integer pageNumber) {
-        PageRequest request =
-                new PageRequest(pageNumber - 1, pageSize, Sort.Direction.ASC, "title");
-        return cinemaRepository.findAll(request);
+        return cinemaRepository.findAll(PageRequest.of(pageNumber - 1, pageSize, Sort.Direction.ASC, "title"));
     }
 
     public List<Cinema> getAllCinema() {
@@ -36,7 +34,7 @@ public class CinemaServiceImpl implements CinemaService {
     }
 
     private boolean existCinema(Cinema cinema) {
-        return cinemaRepository.exists(cinema.getId());
+        return cinemaRepository.existsById(cinema.getId());
     }
 
     public void addCinema(Cinema cinema) {
@@ -45,11 +43,11 @@ public class CinemaServiceImpl implements CinemaService {
 
     public void deleteCinemaByID(Long id) {
         if (existCinema(getCinemaByID(id))) {
-            cinemaRepository.delete(id);
+            cinemaRepository.deleteById(id);
         }
     }
 
     public Cinema getCinemaByID(Long id) {
-        return cinemaRepository.findOne(id);
+        return cinemaRepository.findById(id).orElseThrow(NoClassDefFoundError::new);
     }
 }

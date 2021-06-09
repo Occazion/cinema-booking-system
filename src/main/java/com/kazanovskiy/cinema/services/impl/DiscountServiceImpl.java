@@ -23,12 +23,12 @@ public class DiscountServiceImpl implements DiscountService {
     }
 
     public Discount getDiscountByID(Long id) {
-        return discountRepository.findOne(id);
+        return discountRepository.findById(id).orElseThrow(NoClassDefFoundError::new);
     }
 
     public void deleteDiscountByID(Long id) {
         if(getDiscountByID(id) != null) {
-            discountRepository.delete(id);
+            discountRepository.deleteById(id);
         }
     }
 
