@@ -31,8 +31,8 @@
         <div class="col-sm-4" th:each="film : ${films}">
             <div class="panel panel-primary">
                 <div class="panel-heading" th:text="${film.title}"></div>
-                <div class="panel-body"><a th:href="@{/details/film(filmId = ${film.filmId})}"><img
-                        th:src="@{/img/{id}.jpg(id = ${film.filmId})}" style="width: 100%; height: 450px"
+                <div class="panel-body"><a th:href="@{/details/film(filmId = ${film.id})}"><img
+                        th:src="@{/img/{id}.png(id = ${film.id})}" style="width: 100%; height: 450px"
                         class="img-responsive"/></a>
                 </div>
 

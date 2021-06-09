@@ -31,11 +31,11 @@
               th:object="${film}" method="post">
             <div class="form-group">
                 <input class="form-control" type="hidden"
-                       th:field="*{filmId}"/>
+                       th:field="*{id}"/>
             </div>
             <div class="form-group">
                 <input class="form-control" type="hidden"
-                       th:field="*{filmTittle}"/>
+                       th:field="*{title}"/>
             </div>
             <div class="form-group">
                 <input class="form-control" type="hidden"
@@ -43,7 +43,7 @@
             </div>
             <div class="form-group">
                 <input class="form-control" type="hidden"
-                       th:field="*{filmDuration}"/>
+                       th:field="*{duration}"/>
             </div>
             <div class="form-group">
                 <input class="form-control" type="hidden"
@@ -75,20 +75,20 @@
                 </thead>
                 <th:block th:each="genre : ${allGenres}">
                     <tbody>
-                    <td th:text="${genre.genreTittle}"></td>
+                    <td th:text="${genre.title}"></td>
                     <td th:text="${genre.description}"></td>
                     <td>
                         <div class="form-group">
                             <div class="checkbox">
                                 <input type="checkbox"
-                                       th:field="*{genreFilms}" th:value="${genre}"/></div>
+                                       th:field="*{id}" th:value="${genre.id}"/></div>
                         </div>
 
                     </td>
                     </tbody>
                 </th:block>
                 <h4><strong>Фильм:</strong></h4>
-                <h4 th:text="${film.filmTittle}"></h4>
+                <h4 th:text="${film.title}"></h4>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Добавить жанры</button>
                 </div>

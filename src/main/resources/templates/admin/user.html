@@ -46,11 +46,11 @@
                 <tbody>
                 <td th:text="${user.firstName}"></td>
                 <td th:text="${user.lastName}"></td>
-                <td th:text="${user.telephone}"></td>
+                <td th:text="${user.phone}"></td>
                 <td th:text="${user.email}"></td>
                 <td th:text="${user.username}"></td>
                 <td>
-                    <a th:href="@{/admin/delete/user (userId = ${user.userId})}">
+                    <a th:href="@{/admin/delete/user (userId = ${user.id})}">
                         <button type="button" class="btn btn-default">Удалить</button>
                     </a>
                 </td>

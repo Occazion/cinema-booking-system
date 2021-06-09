@@ -52,22 +52,22 @@
                 <td th:text="${film.country}"></td>
                 <td th:text="${film.startFrom}"></td>
                 <td>
-                    <a th:href="@{/admin/edit/film(filmId = ${film.filmId})}">
+                    <a th:href="@{/admin/edit/film(filmId = ${film.id})}">
                         <button type="button" class="btn btn-default">Редактировать</button>
                     </a>
                 </td>
                 <td>
-                    <a th:href="@{/admin/delete/film (filmId = ${film.filmId})}">
+                    <a th:href="@{/admin/delete/film (filmId = ${film.id})}">
                         <button type="button" class="btn btn-default">Удалить</button>
                     </a>
                 </td>
                 <td>
-                    <a th:href="@{/admin/add/actor_to_film (filmId = ${film.filmId})}">
+                    <a th:href="@{/admin/add/actor_to_film (filmId = ${film.id})}">
                         <button type="button" class="btn btn-default">Добавить актеров</button>
                     </a>
                 </td>
                 <td>
-                    <a th:href="@{/admin/add/genre_to_film (filmId = ${film.filmId})}">
+                    <a th:href="@{/admin/add/genre_to_film (filmId = ${film.id})}">
                         <button type="button" class="btn btn-default">Добавить жанры</button>
                     </a>
                 </td>

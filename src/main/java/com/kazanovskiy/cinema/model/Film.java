@@ -21,7 +21,7 @@ public class Film extends BaseEntity {
     private String year;
     private String country;
     private int restriction;
-    private LocalDate startFrom;
+    private String startFrom;
 
     @ManyToMany(mappedBy = "films")
     private Set<Actor> actors;

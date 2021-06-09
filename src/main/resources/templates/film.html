@@ -65,7 +65,7 @@
 
             </tr>
             </thead>
-            <tr th:each="film : ${allFilm.content}" th:onclick="'javascript:rowClicked(\'' + ${film.filmId} + '\');'"
+            <tr th:each="film : ${allFilm.content}" th:onclick="'javascript:rowClicked(\'' + ${film.id} + '\');'"
                 style="cursor: pointer">
                 <td th:text="${film.title}"></td>
                 <td th:text="${film.duration}"></td>
@@ -74,7 +74,7 @@
                 <td th:text="${film.restriction} + '+'"></td>
                 <td th:text="${film.startFrom}"></td>
                 <td>
-                    <a th:href="@{/session(filmId = ${film.filmId})}">
+                    <a th:href="@{/session(filmId = ${film.id})}">
                         <button type="button" class="btn btn-default">Сеансы</button>
                     </a>
                 </td>

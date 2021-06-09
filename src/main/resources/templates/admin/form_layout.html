@@ -8,7 +8,7 @@
 
         <div class="form-group">
             <input class="form-control" type="hidden"
-                   th:field="*{actorId}"/>
+                   th:field="*{id}"/>
         </div>
 
         <div class="form-group">
@@ -41,7 +41,7 @@
 
         <div class="form-group">
             <input class="form-control" type="hidden"
-                   th:field="*{cinemaId}"/>
+                   th:field="*{id}"/>
         </div>
 
         <div class="form-group">
@@ -95,7 +95,7 @@
 
         <div class="form-group">
             <input class="form-control" type="hidden"
-                   th:field="*{discountId}"/>
+                   th:field="*{id}"/>
         </div>
 
         <div class="form-group">
@@ -138,7 +138,7 @@
 
         <div class="form-group">
             <input class="form-control" type="hidden"
-                   th:field="*{filmId}"/>
+                   th:field="*{id}"/>
         </div>
         <div class="col-sm-8 col-sm-offset-2">
             <div class="form-group">
@@ -210,7 +210,7 @@
 
         <div class="form-group">
             <input class="form-control" type="hidden"
-                   th:field="*{genreId}"/>
+                   th:field="*{id}"/>
         </div>
 
         <div class="form-group">
@@ -243,9 +243,9 @@
 
         <div class="form-group">
             <label class="col-sm-2 control-label" for="sel1">Кинотеатр</label>
-            <select th:field="*{cinemaId}" class="form-control" id="sel1">
+            <select th:field="*{id}" class="form-control" id="sel1">
                 <option th:each="cinema : ${cinemas}"
-                        th:value="${cinema.cinemaId}"
+                        th:value="${cinema.id}"
                         th:text="${ cinema.title}">
                 </option>
             </select>
@@ -261,7 +261,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">Описание</label>
             <input class="form-control" type="text" placeholder="Введите описание кинозала"
-                   required="required" th:field="*{desctiption}"/>
+                   required="required" th:field="*{description}"/>
             <div class="help-block with-errors"></div>
         </div>
 
@@ -276,12 +276,12 @@
           th:object="${row}" method="post">
         <div class="form-group">
             <input class="form-control" type="hidden"
-                   th:field="*{hallId}"/>
+                   th:field="*{id}"/>
         </div>
 
         <div class="form-group">
             <input class="form-control" type="hidden"
-                   th:field="*{cinemaId}"/>
+                   th:field="*{id}"/>
         </div>
 
         <div class="form-group">
@@ -315,7 +315,7 @@
 
         <div class="form-group">
             <input class="form-control" type="hidden"
-                   th:field="*{userId}"/>
+                   th:field="*{id}"/>
         </div>
 
         <div class="form-group">
@@ -386,7 +386,7 @@
 
         <div class="form-group">
             <input class="form-control" type="hidden"
-                   th:field="*{filmSessionId}"/>
+                   th:field="*{id}"/>
         </div>
 
         <div class="help-block" th:if="${#fields.hasErrors('Date')}" style="color: #ac2925">В это время уже проводится
@@ -397,7 +397,7 @@
             <label for="sel2">Кинозал</label>
             <select th:field="*{hallId}" class="form-control" id="sel2" required="required">
                 <option th:each="hall : ${allHalls}"
-                        th:value="${hall.hallId}"
+                        th:value="${hall.id}"
                         th:text="${hall.title}"></option>
             </select>
         </div>
@@ -406,7 +406,7 @@
             <label for="sel1">Фильм</label>
             <select th:field="*{filmId}" class="form-control" id="sel1" required="required">
                 <option th:each="film : ${allFilms}"
-                        th:value="${film.filmId}"
+                        th:value="${film.id}"
                         th:text="${film.title}"></option>
             </select>
         </div>

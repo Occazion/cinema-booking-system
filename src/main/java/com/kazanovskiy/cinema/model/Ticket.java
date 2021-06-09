@@ -17,7 +17,7 @@ public class Ticket extends BaseEntity {
     @Embedded
     private Seat seat;
 
-    private Integer price;
+    private int price;
 
     @ManyToOne
     @JoinColumn(name = "film_session_id")

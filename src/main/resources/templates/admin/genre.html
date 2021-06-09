@@ -47,12 +47,12 @@
                 <td th:text="${genre.title}"></td>
                 <td th:text="${genre.description}"></td>
                 <td>
-                    <a th:href="@{/admin/edit/genre(genreId= ${genre.genreId})}">
+                    <a th:href="@{/admin/edit/genre(genreId= ${genre.id})}">
                         <button type="button" class="btn btn-default">Редактировать</button>
                     </a>
                 </td>
                 <td>
-                    <a th:href="@{/admin/delete/genre (genreId = ${genre.genreId})}">
+                    <a th:href="@{/admin/delete/genre (genreId = ${genre.id})}">
                         <button type="button" class="btn btn-default">Удалить</button>
                     </a>
                 </td>

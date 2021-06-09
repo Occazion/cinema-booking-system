@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 
 
 @Data
-@Entity
+@Entity(name = "roww")
 @EqualsAndHashCode(callSuper = true)
 public class Row extends BaseEntity {
     private int rowIndex;
