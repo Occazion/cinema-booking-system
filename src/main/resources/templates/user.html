@@ -40,7 +40,7 @@
             <h4 th:text="${user.lastName}"></h4>
             <br/>
             <h4><strong>Телефон:</strong></h4>
-            <h4 th:text="${user.telephone}"></h4>
+            <h4 th:text="${user.phone}"></h4>
             <br/>
             <h4><strong>Электронная почта:</strong></h4>
             <h4 th:text="${user.email}"></h4>
@@ -52,9 +52,9 @@
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="sel1">Скидка</label>
-                    <select class="form-control" id="sel1" th:field="*{discountId}">
+                    <select class="form-control" id="sel1" th:field="*{id}">
                         <option th:each="discount : ${allDiscounts}"
-                                th:value="${discount.discountId}"
+                                th:value="${discount.id}"
                                 th:text="${discount.title}">
                         </option>
                     </select>
@@ -83,8 +83,8 @@
                     <td th:text="${ticket.filmSession.hall.cinema.title}"></td>
                     <td th:text="${ticket.filmSession.hall.title}"></td>
                     <td th:text="${ticket.filmSession.film.title}"></td>
-                    <td th:text="${ticket.filmSession.date}"></td>
-                    <td th:text="${ticket.rowNumber}"></td>
+                    <td th:text="${ticket.filmSession.time}"></td>
+                    <td th:text="${ticket.seat}"></td>
                     <td th:text="${ticket.seat}"></td>
                     <td th:text="${ticket.price}"></td>
                     </tbody>
