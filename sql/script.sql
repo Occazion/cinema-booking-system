@@ -77,7 +77,7 @@ create table hall
     cinema_id int null
 );
 
-create table roww
+create table row
 (
     id int auto_increment
         primary key,
