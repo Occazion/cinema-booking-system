@@ -1,14 +1,18 @@
 package com.kazanovskiy.cinema.model;
 
-import lombok.Value;
-
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Value
+import java.util.Objects;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Embeddable
-class Seat {
+public class Seat {
 
     @ManyToOne
     @JoinColumn(name = "row_id")
@@ -16,4 +20,16 @@ class Seat {
 
     private Integer seat;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Seat)) return false;
+        Seat seat1 = (Seat) o;
+        return Objects.equals(row, seat1.row) && Objects.equals(seat, seat1.seat);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(row, seat);
+    }
 }
