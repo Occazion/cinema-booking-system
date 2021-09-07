@@ -110,3 +110,13 @@ create table user
     discount_id int null
 );
 
+create table film_session
+(
+    id int auto_increment
+        primary key,
+    film_id int null,
+    hall_id int null,
+    time time null
+);
+
+
